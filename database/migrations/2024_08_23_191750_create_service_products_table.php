@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
             $table->json('location_ids'); // Store multiple location IDs as JSON
             $table->foreignId('slot_id')->nullable()->constrained('myslots')->onDelete('set null');
-            $table->json('appointment_slot_ids'); // Store multiple appointment slot IDs as JSON
+            $table->json('appointment_slot_ids')->nullable(); // Store multiple appointment slot IDs as JSON
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('image')->nullable();

@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('agent_id')->constrained('users')->onDelete('cascade'); // Reference the users table
-            $table->decimal('total_amount', 10, 2);
-            $table->json('order_date');
-            $table->json('userreqtime')->nullable();;
-            $table->enum('status', ['pending', 'completed', 'canceled'])->default('pending');
+            $table->string('order_no');
+            $table->double('total');
+            $table->text('note')->nullable();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['processing', 'cancelled', 'completed'])->default('processing');
             $table->timestamps();
-  });
+        });
     }
 
     /**

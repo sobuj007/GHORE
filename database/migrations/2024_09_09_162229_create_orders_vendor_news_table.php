@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders_vendo_news', function (Blueprint $table) {
+        Schema::create('orders_vendor_news', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('vendor_id'); // Vendor is the agent

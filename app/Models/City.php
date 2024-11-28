@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
-{   protected $guarded = ['id','created_at','updated_at'];
+{
+    use HasFactory;
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function locations()
     {

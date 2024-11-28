@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrdersVendoNew extends Model
+class OrdersVendorNew extends Model
 {
     use HasFactory;
-    protected $guarded=['id','created_at','updated_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function order()
     {
@@ -24,6 +24,4 @@ class OrdersVendoNew extends Model
     {
         return $this->hasMany(OrdersItems::class, 'vendor_id', 'vendor_id');
     }
-    
-    
 }

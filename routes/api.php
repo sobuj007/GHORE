@@ -34,6 +34,7 @@ use App\Http\Controllers\UserController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -42,27 +43,24 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', [ApiAuthController::class, 'register']);
 Route::post('/login', [ApiAuthController::class, 'login']);
 Route::get('/getall', [GetAllData::class, 'getAllData']);
-Route::get('/getallbygender',[GetAllData::class,'getAllDataBygender']);
+Route::get('/getallbygender', [GetAllData::class, 'getAllDataBygender']);
 Route::get('promotion-banners', [PromotionBannerApiController::class, 'index']);
+Route::middleware('auth:sanctum')->group(function () {});
 Route::middleware('auth:sanctum')->group(function () {
-
-});
-Route::middleware('auth:sanctum')->group(function () {
-Route::get('/myexparts', [MyExpartsApiController::class, 'index']);
-Route::get('/myexparts/getall', [MyExpartsApiController::class, 'getall']);
+    Route::get('/myexparts', [MyExpartsApiController::class, 'index']);
+    Route::get('/myexparts/getall', [MyExpartsApiController::class, 'getall']);
     Route::post('/myexparts/store', [MyExpartsApiController::class, 'store']);
     Route::get('/myexparts/{id}/edit', [MyExpartsApiController::class, 'edit']);
     Route::put('/myexparts/{id}/update', [MyExpartsApiController::class, 'update']);
     Route::delete('/myexparts/{id}/delete', [MyExpartsApiController::class, 'destroy']);
-}); Route::post('promotion-banners', [PromotionBannerApiController::class, 'store']);
+});
+Route::post('promotion-banners', [PromotionBannerApiController::class, 'store']);
 Route::middleware('auth:sanctum')->group(function () {
-       Route::post('/paystore', [PaymentController::class, 'storepayment']);
+    Route::post('/paystore', [PaymentController::class, 'storepayment']);
     Route::get('/payments/{id}', [PaymentController::class, 'showpayment']);
     Route::get('/payments/order/{orderId}', [PaymentController::class, 'getByOrderIdpayment']);
 });
 Route::middleware('auth:sanctum')->group(function () {
-
-   
     Route::get('promotion-banners/{promotionBanner}', [PromotionBannerApiController::class, 'show']);
     Route::put('promotion-banners/{promotionBanner}', [PromotionBannerApiController::class, 'update']);
     Route::delete('promotion-banners/{promotionBanner}', [PromotionBannerApiController::class, 'destroy']);
@@ -75,7 +73,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('myslots/{myslot}/delete', [MyslotApiController::class, 'destroy']);
 });
 Route::middleware('auth:sanctum')->group(function () {
-Route::get('/certificates/get', [CertificateApiController::class, 'index']);
+    Route::get('/certificates/get', [CertificateApiController::class, 'index']);
     Route::post('/certificates/store', [CertificateApiController::class, 'store']);
     Route::get('/certificates/{certificate}/show', [CertificateApiController::class, 'show']);
     Route::put('/certificates/{certificate}/update', [CertificateApiController::class, 'update']);
@@ -105,7 +103,7 @@ Route::middleware('auth:api')->group(function () {
 });
 Route::middleware('auth:api')->group(function () {
     Route::get('serviceproducts/info', [ServiceProductApiController::class, 'index']);
-     Route::get('serviceproducts/getall', [ServiceProductApiController::class, 'getall']);
+    Route::get('serviceproducts/getall', [ServiceProductApiController::class, 'getall']);
     Route::post('serviceproducts/store', [ServiceProductApiController::class, 'store']);
     Route::get('serviceproducts/{id}/show', [ServiceProductApiController::class, 'show']);
     Route::put('serviceproducts/{id}/update', [ServiceProductApiController::class, 'update']);
@@ -116,25 +114,25 @@ Route::middleware('auth:api')->group(function () {
     Route::get('locations', [ServiceProductApiController::class, 'getLocations']);
     Route::get('appointmentslots', [ServiceProductApiController::class, 'getAppointmentSlots']);
 });
-Route::middleware('auth:sanctum')->group(function(){
+Route::middleware('auth:sanctum')->group(function () {
     // If using API routes
-Route::get('/appointmentslots/slot/{slot_id}', [AppointmentslotApiController::class, 'showBySlotId']);
+    Route::get('/appointmentslots/slot/{slot_id}', [AppointmentslotApiController::class, 'showBySlotId']);
     // List all appointment slots
-Route::get('/appointmentslots/index', [AppointmentslotApiController::class, 'index']);
+    Route::get('/appointmentslots/index', [AppointmentslotApiController::class, 'index']);
 
-// Create an appointment slot
-Route::post('/appointmentslots/store', [AppointmentslotApiController::class, 'store']);
-// List all appointment slots
-Route::get('/appointmentslots/{appointmentslots}/show', [AppointmentslotApiController::class, 'index']);
+    // Create an appointment slot
+    Route::post('/appointmentslots/store', [AppointmentslotApiController::class, 'store']);
+    // List all appointment slots
+    Route::get('/appointmentslots/{appointmentslots}/show', [AppointmentslotApiController::class, 'index']);
 
-// Get a single appointment slot
-Route::get('/appointmentslots/{appointmentslot}/showsingel', [AppointmentslotApiController::class, 'show']);
+    // Get a single appointment slot
+    Route::get('/appointmentslots/{appointmentslot}/showsingel', [AppointmentslotApiController::class, 'show']);
 
-// Update an appointment slot
-Route::put('/appointmentslots/{appointmentslot}/update', [AppointmentslotApiController::class, 'update']);
+    // Update an appointment slot
+    Route::put('/appointmentslots/{appointmentslot}/update', [AppointmentslotApiController::class, 'update']);
 
-// Delete an appointment slot
-Route::delete('/appointmentslots/{appointmentslot}/delete', [AppointmentslotApiController::class, 'destroy']);
+    // Delete an appointment slot
+    Route::delete('/appointmentslots/{appointmentslot}/delete', [AppointmentslotApiController::class, 'destroy']);
 });
 // Apply Sanctum middleware to secure routes
 Route::middleware('auth:sanctum')->group(function () {
@@ -145,20 +143,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/orders/{order}/show', [OrderApiController::class, 'show']);
     Route::put('/orders/{order}/update', [OrderApiController::class, 'update']);
     Route::delete('/orders/{order}/delete', [OrderApiController::class, 'destroy']);
-    
+
     Route::put('/orders/{order}/status', [OrderApiController::class, 'updateStatus']);
     Route::get('/orders/agent/{agent_id}', [OrderApiController::class, 'getOrdersByAgentId']);
     Route::get('/orders/user/{user_id}', [OrderApiController::class, 'getOrdersByUserId']);
     Route::get('/orders/user/{user_id}/status/{status}', [OrderApiController::class, 'getOrdersByUserAndStatus']);
     Route::post('/service-products/filter-by-locations', [ServiceProductApiController::class, 'filterByLocations']);
- 
+
     // Transaction routes
     Route::post('/transactions', [TransactionApiController::class, 'store']);
     Route::get('/transactions/{transaction}', [TransactionApiController::class, 'show']);
     Route::put('/transactions/{transaction}', [TransactionApiController::class, 'update']);
     Route::delete('/transactions/{transaction}', [TransactionApiController::class, 'destroy']);
-
-
 });
 
 
@@ -177,10 +173,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/userorders/get', [OrdersNewController::class, 'findUserOrdersByStatus']);
     Route::post('/reviews', [OrdersNewController::class, 'storereview'])->middleware('auth:api');
- Route::post('/orders-vendo-news/{orderId}/update-items-status', [OrdersNewController::class, 'updateProductStatus']);
-// Get reviews by agent ID (API)
-Route::get('/reviews/agent/{agent_id}', [OrdersNewController::class, 'getReviewsByAgent']);
-    
+    Route::post('/orders-vendo-news/{orderId}/update-items-status', [OrdersNewController::class, 'updateProductStatus']);
+    // Get reviews by agent ID (API)
+    Route::get('/reviews/agent/{agent_id}', [OrdersNewController::class, 'getReviewsByAgent']);
 });
 //Route::middleware('auth:api')->get('/user', [ApiAuthController::class, 'user']);
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
