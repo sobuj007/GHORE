@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Order;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderItemResouce;
 use App\Models\OrdersVendoNew;
 use App\Models\OrdersItems;
 use App\Models\OrdersNew;
@@ -307,12 +308,30 @@ class OrdersNewController extends Controller
             ->with(['order.user.commonProfile', 'order.items2', 'order.vendorOrders', 'order.payment']) // Include related data
             ->get();
 
-        // Return JSON response with pending orders and today's orders
+        $ordersQuery = OrdersItems::where('vendor_id', auth()->id());
+
+        // Fetch data with independent queries
+        $orderPending = $ordersQuery->clone()->where('status', 'pending')->get();
+        $orderComplete = $ordersQuery->clone()->where('status', 'completed')->get();
+        // Handle custom date format (dd/MM/yyyy)
+        $today = Carbon::now()->format('d/m/Y');
+        $orderToday = $ordersQuery->clone()->where('req_order_date', $today)->get();
+
+
+        // Return JSON response
         return response()->json([
             'message' => 'Vendor orders found successfully!',
-            'pendingOrders' => $pendingOrders,
-            'todayOrders' => $todayOrderItems,
-            'pendingBalance' => $pendingBalance,
+            'orders' => [
+                'pending' => collect($orderPending)->map(function ($q) {
+                    return new OrderItemResouce($q);
+                }),
+                'complete' => collect($orderComplete)->map(function ($q) {
+                    return new OrderItemResouce($q);
+                }),
+                'today' => collect($orderToday)->map(function ($q) {
+                    return new OrderItemResouce($q);
+                }),
+            ],
         ]);
     }
 
