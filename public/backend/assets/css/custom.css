@@ -1,0 +1,15 @@
+img{
+    max-width: 100%;
+}
+a.filepond--credits {
+    display: none !important;
+}
+
+.input-group-text .icons-selector .fip-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-group-text .fip-icons-container span.fip-box {
+    font-size: 20px;
+}

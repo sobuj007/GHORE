@@ -1,0 +1,15 @@
+[02-Sep-2024 23:44:59 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:47:29 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:49:26 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:50:24 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:55:04 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:55:16 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:57:31 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[02-Sep-2024 23:58:16 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Api\AppointmentslotApiController::show() in /home/softpatt/public_html/app/Http/Controllers/Api/AppointmentslotApiController.php on line 91
+[03-Sep-2024 22:53:02 UTC] PHP Fatal error:  Cannot redeclare App\Models\MyExpart::profileImage() in /home/softpatt/public_html/app/Models/MyExpart.php on line 27
+[03-Sep-2024 22:54:46 UTC] PHP Fatal error:  Cannot redeclare App\Models\MyExpart::profileImage() in /home/softpatt/public_html/app/Models/MyExpart.php on line 27
+[03-Sep-2024 22:55:09 UTC] PHP Fatal error:  Cannot redeclare App\Models\MyExpart::profileimage() in /home/softpatt/public_html/app/Models/MyExpart.php on line 27
+[07-Sep-2024 21:01:25 UTC] PHP Fatal error:  Cannot redeclare App\Models\Orders::$casts in /home/softpatt/public_html/app/Models/Orders.php on line 21
+[07-Sep-2024 21:01:57 UTC] PHP Fatal error:  Cannot redeclare App\Models\Orders::$casts in /home/softpatt/public_html/app/Models/Orders.php on line 21
+[18-Oct-2024 18:38:27 UTC] PHP Fatal error:  Cannot redeclare App\Models\ReviewRating::serviceProduct() in /home/softpatt/public_html/app/Models/ReviewRating.php on line 28
+[01-Nov-2024 18:08:47 UTC] PHP Fatal error:  Cannot redeclare App\Models\OrdersNew::user() in /home/softpatt/public_html/app/Models/OrdersNew.php on line 32
