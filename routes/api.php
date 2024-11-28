@@ -84,7 +84,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:api')->group(function () {
     Route::get('/usercommonprofile', [UsercommonprofileApiController::class, 'index']);
     Route::post('/usercommonprofile/store', [UsercommonprofileApiController::class, 'store']);
-    Route::get('/usercommonprofile/{id}', [UserCommonProfileController::class, 'show']);
+    Route::get('/usercommonprofile/{id}', [UsercommonprofileApiController::class, 'show']);
     Route::get('/usercommonprofile/{id}/show', [UsercommonprofileApiController::class, 'show']);
     Route::post('/usercommonprofile/{id}/update', [UsercommonprofileApiController::class, 'update']);
     Route::delete('/usercommonprofile/{id}/delete', [UsercommonprofileApiController::class, 'destroy']);

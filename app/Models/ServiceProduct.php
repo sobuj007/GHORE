@@ -10,10 +10,10 @@ class ServiceProduct extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
-     protected $casts = [
-        'bodypart_ids' => 'array',  // Cast bodypart_ids to an array
-        'location_ids' => 'array',   // Cast location_ids to an array (if not already)
-    ];
+    //  protected $casts = [
+    //     'bodypart_ids' => 'array',  // Cast bodypart_ids to an array
+    //     'location_ids' => 'array',   // Cast location_ids to an array (if not already)
+    // ];
 
     public function category()
     {
